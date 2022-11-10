@@ -14,11 +14,18 @@ CREATE TABLE if not exists users
 
 CREATE TABLE if not exists ads
 (
-    id          INT UNSIGNED NOT NULL,
-    user_id     int  UNSIGNED NOT NULL,
+    id          INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    user_id     INT UNSIGNED NOT NULL,
     title       VARCHAR(100) NOT NULL,
     description TEXT         NOT NULL,
-
-    FOREIGN KEY (user_id) REFERENCES users (id)
+    PRIMARY KEY (id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 
 );
+
+
+
+insert into users( username, email, password)
+value ('admin','admin@emil.com','password')
+
+
